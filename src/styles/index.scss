@@ -1,0 +1,130 @@
+@mixin text($weight, $size, $height, $color) {
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $height;
+  color: $color;
+}
+@mixin box($width, $height, $radius, $bg, $padding) {
+  width: $width;
+  height: $height;
+  border-radius: $radius;
+  background-color: $bg;
+  padding: $padding;
+}
+
+$black: #393939;
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+  max-width: 700px ;
+  height: auto;
+  margin: auto;
+}
+
+// HEAD 
+
+header{
+  padding-top: 20px;
+  h1{
+    text-align: center;
+    letter-spacing: 3px;
+    @include text(700, 40px, 39px, #64C4ED)
+  }
+  h1::before{
+    content: 'TODO';
+    background-color: #64C4ED;
+    color: WHITE;
+    padding: 5px;
+  }
+}
+main{
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  .list{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    width: 400px;
+    padding: 20px;
+    border: 1px solid $black;
+    border-radius: 10px;
+    margin: auto;
+
+    .item-todo{
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+
+      .item-text{
+        letter-spacing: 1px;
+        @include text(600, 18px, 19px, black)
+        
+      }
+      }
+      .strike{
+        text-decoration: line-through;
+       
+      }
+      .item-delete{
+        width: 21px;
+        height: 21px;
+        color: white;
+        background-color: red;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 1.2;
+        transition: all 0.3s;
+      }
+      .item-delete:hover{
+        transition: all 0.3s;
+        background-color: rgba(255, 0, 0, 0.398);
+      }
+  }
+ 
+    form{
+      margin: auto;
+      padding-top:20px ;
+      display: flex;
+      column-gap: 10px;
+      input{
+        border: none;
+        width: 330px;
+        height: 40px;
+        padding-left: 20px;
+        align-items: center;
+        @include text(600, 20px, 19px, $black )
+
+      }
+      input::placeholder{
+        text-align: center;
+        @include text(600, 20px, 19px, #B4B4B4 )
+        
+      }
+      button{
+        width: 40px;
+        height: 40px;
+        font-size: 30px;
+        border: none;
+        background: none ;
+        color:#B4B4B4;
+        cursor: pointer;
+        transition: all 0.3s;
+        border: solid 1px white ;
+        
+      }
+      button:hover{
+        transition: all 0.3s;
+        color: #b4b4b489;
+        border-radius: 10px;
+        border: solid 1px #B4B4B4 ;
+      }
+    }
+  }
+
+
